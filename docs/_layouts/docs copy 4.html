@@ -1,0 +1,85 @@
+{% include header-fixedtop.html %}
+<!-- Bootstrap row -->
+<div class="row" id="body-row">
+    <!-- Sidebar -->
+    <div id="sidebar-container" class="bg-light"  role="navigation" aria-label="sidebar">
+
+		<ul class="list-group sticky-top bg-light cw-sticky-offset">
+		<!--<div class="col-md-3">-->
+			<div id="MainMenu">
+			
+            
+				
+					<div class="panel">
+					  
+						{% for levelone in site.data.docstoc %}
+							<a href="#demo3" id="sigh" class="bg-light list-group-item menu-level-one" data-toggle="collapse" data-parent="#MainMenu" aria-expanded="false">
+								{{ levelone.title }}
+								<i class="submenu-icon"></i>
+							</a>
+
+							{% if levelone.children %}
+							<div class="collapse" id="demo3">
+								{% for leveltwo in levelone.children %}
+
+									<a href="{{ leveltwo.url }}" id="submemu1" class="bg-light menu-level-two list-group-item submenu1" data-toggle="collapse" data-parent="#SubMenu1" aria-expanded="false">{{ leveltwo.title }} <i class="submenu-icon"></i></a>
+								{% endfor %}
+							</div>
+							{% endif %}
+
+						{% endfor %}
+
+					</div>
+
+	
+	
+				
+
+			</div>
+		 <!--</div>		-->
+		 </ul>
+
+	
+    </div>
+    <!-- sidebar-container END -->
+    <!-- MAIN -->
+    <div id="content-container">
+    		<div class="py-5 px-5">
+    		    <div class="cw-docs-spacer"></div>
+        		<div role="main">{{ content }}</div>
+        </div>
+        
+        {% if page.permalink != "gettingstarted" %}
+        <div class="py-5 px-5 text-right">
+        Last update: {{ page.last_modified_at| date: '%b %d, %Y'}}
+        </div>
+        {% endif %}
+        
+    </div>
+    
+</div>
+{% include footer.html %}
+<!-- Main Col END -->
+ {% include body-end.html %}
+ 
+ 
+ <!--
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+ <script>
+$(document).ready(function(){
+	
+    anchors.options.placement = 'left';
+    anchors.add('h1');
+    anchors.add('h2');
+    anchors.add('h3');
+    anchors.add('h4');
+});
+</script>-->
+
+<script>
+$(document).ready(function(){
+    $("#sigh").click();
+});
+
+</script>
+ 

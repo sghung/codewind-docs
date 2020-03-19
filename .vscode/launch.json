@@ -1,0 +1,53 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug appsodyopenliberty",
+            "request": "attach",
+            "hostName": "127.0.0.1",
+            "projectName": "appsodyopenliberty"
+        },
+        {
+            "type": "java",
+            "name": "Debug appsodyopenliibertyvscode",
+            "request": "attach",
+            "hostName": "127.0.0.1",
+            "projectName": "appsodyopenliibertyvscode"
+        },
+        {
+            "type": "java",
+            "name": "Debug appsodyopenliberty2",
+            "request": "attach",
+            "hostName": "127.0.0.1",
+            "projectName": "appsodyopenliberty2"
+        },
+        {
+            "type": "java",
+            "name": "Debug micromicro",
+            "request": "attach",
+            "hostName": "127.0.0.1",
+            "projectName": "micromicro"
+        },
+        {
+            "type": "java",
+            "name": "Debug micromicro2",
+            "request": "attach",
+            "hostName": "127.0.0.1",
+            "projectName": "micromicro2"
+        },
+        {
+            "type": "java",
+            "name": "Debug micromicro3vscode",
+            "request": "attach",
+            "hostName": "127.0.0.1",
+            "projectName": "micromicro3vscode"
+        },
+        {
+            "type": "java",
+            "name": "Debug svtprivate",
+            "request": "attach",
+            "hostName": "127.0.0.1",
+            "projectName": "svtprivate"
+        }
+    ]
+}

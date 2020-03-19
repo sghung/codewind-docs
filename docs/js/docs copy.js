@@ -14,18 +14,7 @@ $(function() {
 	
 	console.log(pathname);
 
-	// Uncomment for old...kinda strange behaviour
-	
-	if (pathname === 'gettingstarted.html'){
-		$('[id="getting_started"]').collapse();
-	}
-	$('[id=\"#getting_started\"]').on("click", function(e) {
-		
-		console.log("geting started was clicked");
-		window.location.replace("/codewind/gettingstarted.html");
-	});
 
-	// Syncs the sidebar to the current page
 	$('a').each(function( i ) {
 		/*if($(this).attr('data-link') === cleanUrl) {
 			$(this).addClass('active');
@@ -55,16 +44,7 @@ $(function() {
 			}
 		}
 		//}
-
-		$()
 	});
-
-
-	/*$('[id=\"#getting_started\"]').on("click", function(e) {
-		
-		console.log("geting started was clicked");
-		window.location.replace("/codewind/gettingstarted.html");
-	});*/
 
     /*
     var clicked = false;

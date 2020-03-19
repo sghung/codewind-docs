@@ -10,8 +10,11 @@
 
 				
 
-	
+					{% assign count = 0 %}
+
 					{% for levelone in site.data.docstoc %}
+	
+						{% assign count = count | plus: 1 %}
 
 						{% if levelone.children %}
 
@@ -21,22 +24,25 @@
 						<a href="#{{ hash }}" id="#{{ hash }}" class="bg-light list-group-item list-group-item-action flex-column align-items-start" data-toggle="collapse" aria-expanded="false">{{ levelone.title }}<span class="submenu-icon"></span></a>
 						<div class="cw-sidebar-div cw-sidebar-submenu collapse" id="{{ hash }}">
 
+							{% assign count2 = 0 %}	
 							{% for leveltwo in levelone.children %}
 							
+								{% assign count2 = count2 | plus: 1 %}
 								{% if leveltwo.children %}
 
 									{% assign hashtwo = leveltwo.title | downcase | replace: " ", "_" %}
 
-									<a href="#{{ hashtwo }}" id="#{{ hashtwo }}" class="bg-light list-group-item list-group-item-action flex-column align-items-start" data-toggle="collapse" data-parent="#{{ hash }}" aria-expanded="false">{{ leveltwo.title }}<span class="submenu-icon"></span></a>
+									<!-- the data-parent must be subsubmenu, not submenu, otherwise it won't open -->
+									<a href="#{{ hashtwo }}" id="#{{ hashtwo }}" class="bg-light list-group-item list-group-item-action flex-column align-items-start" data-toggle="collapse" data-parent="#{{ hashtwo }}" aria-expanded="false">{{ leveltwo.title }}<span class="submenu-icon"></span></a>
 
 									<div class="cw-sidebar-div cw-sidebar-submenu-submenu collapse" id="{{ hashtwo }}">
 										
 											{% for levelthree in leveltwo.children %}
-												<a href="{{ levelthree.url }}" class="bg-light list-group-item" data-parent="#{{ hashtwo }}" data-url="{{ levelthree.url }}">{{ levelthree.title }}</a>
+												<a href="{{ levelthree.url }}" class="bg-light list-group-item" data-parent="#{{ hashtwo }}}" data-url="{{ levelthree.url }}">{{ levelthree.title }}</a>
 											{% endfor %}
 									</div>
 								{% else %}
-									<a href="{{ leveltwo.url }}" class="bg-light list-group-item" data-parent="#{{ hash }}" data-url="{{ leveltwo.url }}">{{ leveltwo.title }}</a>
+									<a href="{{ leveltwo.url }}" class="bg-light list-group-item" data-parent="#submenu{{count}}_{{count2}}" data-url="{{ leveltwo.url }}">{{ leveltwo.title }}</a>
 								{% endif %}
 							
 

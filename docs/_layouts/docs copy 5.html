@@ -1,0 +1,100 @@
+{% include header-fixedtop.html %}
+<!-- Bootstrap row -->
+<div class="row" id="body-row">
+    <!-- Sidebar -->
+    <div id="sidebar-container" class="bg-light"  role="navigation" aria-label="sidebar">
+        <!-- Bootstrap List Group -->
+        <ul class="list-group sticky-top bg-light cw-sticky-offset">
+			<!--<div class="col-md-3">-->
+				<div id="MainMenu">
+				
+				
+					
+						<div class="panel">
+						  
+							{% assign count = 0 %}
+							{% for levelone in site.data.docstoc %}
+								
+								{% assign count = count | plus: 1 %}
+
+								{% if levelone.children %}
+
+								<a href="#item{{ count }}" class="bg-light list-group-item menu-level-one" data-toggle="collapse" data-parent="#MainMenu" aria-expanded="false">
+									{{ levelone.title }}
+									<i class="submenu-icon"></i>
+								</a>
+
+								<div class="collapse" id="item{{ count }}">
+
+									{% assign count2 = 0 %}
+
+									{% for leveltwo in levelone.children %}
+										{% assign count2 = count2 | plus: 1 %}
+
+										{% if leveltwo.children %}
+											<a href="#SubSubMenu{{ count }}_{{ count2 }}" id="subSubMenu{{ count }}_{{ count2 }}" class="bg-light list-group-item menu-level-two" data-toggle="collapse" data-parent="#SubSubMenu{{ count }}_{{ count2 }}" aria-expanded="false">{{ leveltwo.title }} <i class="submenu-icon"></i></a>
+											<div class="collapse" id="SubSubMenu{{ count }}_{{ count2 }}">
+											{% for levelthree in leveltwo.children %}																								
+												<a href="{{ levelthree.url }}" class="bg-light list-group-item" data-parent="#SubSubMenu{{ count }}_{{ count2 }}">{{ levelthree.title }}</a>
+											{% endfor %}
+											</div>											
+										{% else %}
+											<a href="{{ leveltwo.url }}" class="bg-light list-group-item" data-parent="#SubSubMenu{{ count }}_{{ count2 }}">{{ leveltwo.title }}</a>
+										{% endif %}
+									{% endfor %}
+								</div>
+								{% else %}
+									<a href="{{ levelone.url }}" class="bg-light list-group-item menu-level-one" data-parent="#MainMenu">
+										{{ levelone.title }}
+									</a>
+
+								{% endif %}
+	
+							{% endfor %}
+	
+						</div>
+	
+		
+		
+					
+	
+				</div>
+			 <!--</div>		-->
+			 </ul>
+        <!-- List Group END-->
+    </div>
+    <!-- sidebar-container END -->
+    <!-- MAIN -->
+    <div id="content-container">
+    		<div class="py-5 px-5">
+    		    <div class="cw-docs-spacer"></div>
+        		<div role="main">{{ content }}</div>
+        </div>
+        
+        {% if page.permalink != "gettingstarted" %}
+        <div class="py-5 px-5 text-right">
+        Last update: {{ page.last_modified_at| date: '%b %d, %Y'}}
+        </div>
+        {% endif %}
+        
+    </div>
+    
+</div>
+{% include footer.html %}
+<!-- Main Col END -->
+ {% include body-end.html %}
+ 
+ 
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+ <script>
+$(document).ready(function(){
+	
+    anchors.options.placement = 'left';
+    anchors.add('h1');
+    anchors.add('h2');
+    anchors.add('h3');
+    anchors.add('h4');
+});
+</script>
+ 

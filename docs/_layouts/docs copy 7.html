@@ -6,37 +6,37 @@
         <!-- Bootstrap List Group -->
         <ul class="list-group sticky-top bg-light cw-sticky-offset">
 
-			
+			<!-- menu -->
+			<div id="main-menu">
 
-				
+				<div class="list-group panel">
 
-	
+					{% assign count = 0 %}
+
 					{% for levelone in site.data.docstoc %}
+	
+						{% assign count = count | plus: 1 %}
 
 						{% if levelone.children %}
+						<a href="#submenu{{count}}" id="#submenu{{count}}" class="list-group-item" data-toggle="collapse">{{ levelone.title }}<i class="fa fa-caret-down"></i></a>
+						<div class="collapse list-group-submenu" id="submenu{{count}}">
 
-
-						{% assign hash = levelone.title | downcase | replace: " ", "_" %}
-
-						<a href="#{{ hash }}" id="#{{ hash }}" class="bg-light list-group-item list-group-item-action flex-column align-items-start" data-toggle="collapse" aria-expanded="false">{{ levelone.title }}<span class="submenu-icon"></span></a>
-						<div class="cw-sidebar-div cw-sidebar-submenu collapse" id="{{ hash }}">
-
+							{% assign count2 = 0 %}	
 							{% for leveltwo in levelone.children %}
 							
+								{% assign count2 = count2 | plus: 1 %}
 								{% if leveltwo.children %}
+									<!-- the data-parent must be subsubmenu, not submenu, otherwise it won't open -->
+									<a href="#SubSubMenu{{count}}_{{count2}}" id="#SubSubMenu{{count}}_{{count2}}" class="list-group-item" data-toggle="collapse" data-parent="#SubSubMenu{{count}}_{{count2}}">{{ leveltwo.title }} <i class="fa fa-caret-down"></i></a>
 
-									{% assign hashtwo = leveltwo.title | downcase | replace: " ", "_" %}
-
-									<a href="#{{ hashtwo }}" id="#{{ hashtwo }}" class="bg-light list-group-item list-group-item-action flex-column align-items-start" data-toggle="collapse" data-parent="#{{ hash }}" aria-expanded="false">{{ leveltwo.title }}<span class="submenu-icon"></span></a>
-
-									<div class="cw-sidebar-div cw-sidebar-submenu-submenu collapse" id="{{ hashtwo }}">
+									<div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu{{count}}_{{count2}}">
 										
 											{% for levelthree in leveltwo.children %}
-												<a href="{{ levelthree.url }}" class="bg-light list-group-item" data-parent="#{{ hashtwo }}" data-url="{{ levelthree.url }}">{{ levelthree.title }}</a>
+												<a href="{{ levelthree.url }}" class="list-group-item" data-parent="#SubSubMenu{{count}}_{{count2}}">{{ levelthree.title }}</a>
 											{% endfor %}
 									</div>
 								{% else %}
-									<a href="{{ leveltwo.url }}" class="bg-light list-group-item" data-parent="#{{ hash }}" data-url="{{ leveltwo.url }}">{{ leveltwo.title }}</a>
+									<a href="{{ leveltwo.url }}" class="list-group-item" data-parent="#submenu{{count}}_{{count2}}">{{ leveltwo.title }}</a>
 								{% endif %}
 							
 
@@ -44,7 +44,7 @@
 							{% endfor %}
 						</div>
 						{% else %}
-						<a href="{{ levelone.url }}" class="bg-light list-group-item list-group-item-action flex-column align-items-start" data-url="{{ levelone.url }}">
+						<a href="{{ levelone.url }}" class="list-group-item list-group-item-success" data-parent="#main-menu">
 							{{ levelone.title }}
 						</a>
 						{% endif %}
@@ -53,8 +53,8 @@
 
 
 				  
-				
-			
+				</div>
+			</div>
 
 
 

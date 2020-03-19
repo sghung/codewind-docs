@@ -48,24 +48,43 @@ code {
 	text-decoration: none;
 }
 
+/* sghung - hmmm maybe this isn't used */
 #sidebar-container {
     min-height: 100vh;
     padding: 0;
     width: 350px;
     padding-top: 115px;
     border-right: 2px solid #d8d8d8;
+    
 }
 
 #sidebar-container .list-group a {
     color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
 }
 
-#sidebar-container .list-group .cw-sidebar-submenu a {
+#main-menu .list-group .panel .list-group-item .menu-level-one a {
     padding-left: 30px;
+    font-weight: 300;
 }
 
-#sidebar-container .list-group .cw-sidebar-submenu .cw-sidebar-submenu-submenu a {
+#main-menu .list-group .panel .list-group-item .menu-level-two a {
     padding-left: 40px;
+    font-weight: 300;
+}
+
+#main-menu .testingnow a {
+    padding-left: 40px;
+    font-weight: 300;
+    font-size: 0.95rem
+}
+
+#main-menu .testinglater a {
+    padding-left: 50px;
+    font-weight: 300;
+    font-size: 0.95rem
 }
 
 #sidebar-container .list-group .cw-sidebar-submenu .cw-sidebar-submenu-submenu .cw-sidebar-submenu-submenu-submenu a {
@@ -126,6 +145,55 @@ code {
     padding-left: 10px;
 }
 
+
+#sidebar-container .menu-level-one[aria-expanded="true"] .submenu-icon:after {
+    content: " \f105";
+    font-family: FontAwesome; 
+    text-align: right;
+    font-weight: 300;
+    font-size: 20px;
+    padding-left: 10px;
+    font-style: normal;
+    text-decoration: inherit;
+    float: right;
+} 
+
+#sidebar-container .menu-level-one[aria-expanded="false"] .submenu-icon:after {
+    content: " \f107";
+    font-family: FontAwesome; 
+    text-align: right;
+    font-weight: 300;
+    font-size: 20px;
+    padding-left: 10px;
+    font-style: normal;
+    text-decoration: inherit;
+    float: right;
+} 
+
+#sidebar-container .menu-level-[aria-expanded="true"] .submenu-icon:after {
+    content: " \f105";
+    font-family: FontAwesome; 
+    text-align: right;
+    font-weight: 300;
+    font-size: 20px;
+    padding-left: 10px;
+    font-style: normal;
+    text-decoration: inherit;
+    float: right;
+} 
+
+#sidebar-container .menu-level-two[aria-expanded="false"] .submenu-icon:after {
+    content: " \f107";
+    font-family: FontAwesome; 
+    text-align: right;
+    font-weight: 300;
+    font-size: 20px;
+    padding-left: 10px;
+    font-style: normal;
+    text-decoration: inherit;
+    float: right;
+}
+
 #content-container {
     width: calc(100% - 350px);
 }
@@ -147,10 +215,6 @@ code {
     background-color: #f8f9fa;
 }
 
-.collapsing {
-    transition: none !important;
-  }
-
 .list-group-item {
     border: none;
 }
@@ -160,6 +224,16 @@ code {
     font-size: 18px;
     font-weight: 400;
 }
+
+
+.list-group > .list-group-submenu {
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
 
 .cw-extlink:after {
 	content: " \f08E";

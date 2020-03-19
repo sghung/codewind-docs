@@ -18,7 +18,7 @@ The Codewind Odo extension provides support for [OpenShift Do (odo)](https://git
 3. [Current limitations](#current-limitations)
 
 ## Extension overview
-
+{: #extension-overview}
 - Supports Java, Node.js, Python, and Perl components.
 - Provides OpenShift templates to help you create components with different supported languages.
 - Imports and enables continued development of your existing components.

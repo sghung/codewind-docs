@@ -147,10 +147,6 @@ code {
     background-color: #f8f9fa;
 }
 
-.collapsing {
-    transition: none !important;
-  }
-
 .list-group-item {
     border: none;
 }

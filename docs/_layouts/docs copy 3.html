@@ -1,0 +1,98 @@
+{% include header-fixedtop.html %}
+<!-- Bootstrap row -->
+<div class="row" id="body-row">
+    <!-- Sidebar -->
+    <div id="sidebar-container" class="bg-light"  role="navigation" aria-label="sidebar">
+
+
+		<!--<div class="col-md-3">-->
+			<div id="MainMenu">
+			
+            
+				
+					<div class="panel">
+					  <a href="#demo3" id="sigh" class="bg-light list-group-item menu-level-one" data-toggle="collapse" data-parent="#MainMenu" aria-expanded="false">What is Codewind?
+						<i class="submenu-icon"></i>
+					  </a>
+
+					  <div class="collapse" id="demo3">
+						<a href="#SubMenu1" id="submemu1" class="bg-light menu-level-two list-group-item submenu1" data-toggle="collapse" data-parent="#SubMenu1" aria-expanded="false">Subitem 1 <i class="submenu-icon"></i></a>
+						<div class="collapse list-group-submenu" id="SubMenu1">
+						  <a href="#" class="bg-light menu-level-three list-group-item" data-parent="#SubMenu1">Subitem 1 a</a>
+						  <a href="#" class="bg-light menu-level-three list-group-item" data-parent="#SubMenu1">Subitem 2 b</a>
+						  <a href="#SubSubMenu1" class="bg-light list-group-item" data-toggle="collapse" data-parent="#SubSubMenu1">Subitem 3 c <i class="submenu-icon"></i></a>
+						  <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
+							<a href="#" class="bg-light list-group-item" data-parent="#SubSubMenu1">Sub sub item 1</a>
+							<a href="#" class="bg-light list-group-item" data-parent="#SubSubMenu1">Sub sub item 2</a>
+						  </div>
+						  <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 4 d</a>
+						</div>
+				
+				
+						<a href="#SubMenu2" class="bg-light menu-level-two list-group-item" data-toggle="collapse" data-parent="#SubMenu2" aria-expanded="false">Subitem 2 <i class="submenu-icon"></i></a>
+				
+				
+						<a href="javascript:;" class="bg-light list-group-item">Subitem 3</a>
+					  </div>
+					  <a href="#demo4" class="bg-light list-group-item menu-level-one" data-toggle="collapse" data-parent="#MainMenu" aria-expanded="false">Item 4</a>
+
+					  
+
+					  <div class="collapse" id="demo4">
+						<a href="" class="list-group-item">Subitem 1</a>
+						<a href="" class="list-group-item">Subitem 2</a>
+						<a href="" class="list-group-item">Subitem 3</a>
+					  </div>
+					</div>
+
+	
+	
+				
+
+			</div>
+		 <!--</div>		-->
+
+	
+    </div>
+    <!-- sidebar-container END -->
+    <!-- MAIN -->
+    <div id="content-container">
+    		<div class="py-5 px-5">
+    		    <div class="cw-docs-spacer"></div>
+        		<div role="main">{{ content }}</div>
+        </div>
+        
+        {% if page.permalink != "gettingstarted" %}
+        <div class="py-5 px-5 text-right">
+        Last update: {{ page.last_modified_at| date: '%b %d, %Y'}}
+        </div>
+        {% endif %}
+        
+    </div>
+    
+</div>
+{% include footer.html %}
+<!-- Main Col END -->
+ {% include body-end.html %}
+ 
+ 
+ <!--
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+ <script>
+$(document).ready(function(){
+	
+    anchors.options.placement = 'left';
+    anchors.add('h1');
+    anchors.add('h2');
+    anchors.add('h3');
+    anchors.add('h4');
+});
+</script>-->
+
+<script>
+$(document).ready(function(){
+    $("#sigh").click();
+});
+
+</script>
+ 
