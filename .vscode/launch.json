@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "type": "node",
+            "name": "Debug testingnodemar26",
+            "request": "attach",
+            "address": "127.0.0.1",
+            "localRoot": "/Users/stevenhung/git/codewind/codewind-nov/testingnodemar26",
+            "remoteRoot": "/app",
+            "restart": true
+        },
+        {
+            "type": "java",
+            "name": "Debug svtprivate",
+            "request": "attach",
+            "hostName": "127.0.0.1",
+            "projectName": "svtprivate"
+        },
+        {
+            "type": "node",
+            "name": "Debug appsody-loopback",
+            "request": "attach",
+            "address": "127.0.0.1",
+            "localRoot": "/Users/stevenhung/git/codewind/codewind-jan/appsody-loopback",
+            "remoteRoot": "/project/user-app",
+            "restart": true
+        }
+    ]
+}
