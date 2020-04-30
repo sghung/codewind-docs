@@ -1,0 +1,11 @@
+image: rawdee/pmd:6.14.0.1
+
+stages:
+  - lint
+
+lint:
+  stage: lint
+  script:
+    # Placeholder lint script
+    - echo "linting..."
+
