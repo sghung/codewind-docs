@@ -1,4 +1,4 @@
-image: ruby:2.5
+image: jekyll/jekyll
 
 variables:
   JEKYLL_ENV: production
@@ -6,12 +6,8 @@ variables:
 pages:
   script:
   - cd docs
-  - gem update --system
-  - gem install bundler
-  - bundler update --bundler
-  - bundle install
+  - jekyll build
   
-  - bundle exec jekyll build
   artifacts:
     paths:
     - docs/_site
