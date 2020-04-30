@@ -7,5 +7,5 @@ lint:
   stage: lint
   script:
     # Placeholder lint script
-    - echo "linting..."
+    - echo "linting... :)"
 
