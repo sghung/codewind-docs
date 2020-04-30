@@ -1,8 +1,15 @@
-stages:
-  - lint
+image: ruby:2.3
 
-lint:
-  stage: lint
+variables:
+  JEKYLL_ENV: production
+
+pages:
   script:
-    - gem install jekyll
-    - jekyll build
+  - cd docs
+  - bundle install
+  - bundle exec jekyll build
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
