@@ -8,4 +8,5 @@ lint:
   script:
     # Placeholder lint script
     - echo "linting..."
+    - ./build.sh
 
