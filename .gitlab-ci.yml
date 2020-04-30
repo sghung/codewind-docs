@@ -14,6 +14,6 @@ pages:
   - bundle exec jekyll build
   artifacts:
     paths:
-    - _site
+    - docs/_site
   only:
   - master
