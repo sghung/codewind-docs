@@ -6,5 +6,6 @@ stages:
 lint:
   stage: lint
   script:
+    - echo "let's try it"
     - gem install jekyll
     - jekyll build
